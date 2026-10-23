@@ -1,0 +1,18 @@
+/* Kristian Dalen – felles stiler. Tokens (farger, fonter, avstand) ligger i tokens.css. */
+@import url("./tokens.css");
+@font-face{font-family:"Arsenica";src:url("../assets/frisktid/Arsenica-AltRegular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Arsenica Text";src:url("../assets/frisktid/ArsenicaText-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url(../assets/hub/BricolageGrotesque-latin.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(../assets/hub/DMSans-latin.woff2) format("woff2");font-weight:100 1000;font-display:swap}
+@font-face{font-family:"degular-display";src:url("../assets/presis/fonts/degular-display-300.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"degular-text";src:url("../assets/presis/fonts/degular-text-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"degular";src:url("../assets/presis/fonts/degular-600.woff2") format("woff2");font-weight:600;font-display:swap}
+body{margin:0;background:var(--surface)}
+html{scroll-behavior:smooth}
+a{color:var(--ink)}
+a:hover{color:var(--ink-muted)}
+.home a:hover{color:var(--accent-hover)}
+summary::-webkit-details-marker{display:none}
+details[open] [data-plus]{transform:rotate(45deg)}
+[data-hover="hv1"]:hover{opacity:0 !important}
+[data-hover="hv2"]:hover{background:var(--accent-hover) !important;color:var(--ink) !important}

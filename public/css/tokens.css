@@ -1,0 +1,31 @@
+/* Kristian Dalen — design tokens (fra designsystemet) */
+@font-face{font-family:"Zalando Sans";src:url("../assets/fonts/ZalandoSans-Variable.ttf") format("truetype");font-weight:200 900;font-stretch:75% 125%;font-style:normal;font-display:swap}
+@font-face{font-family:"Zalando Sans Expanded";src:url("../assets/fonts/ZalandoSansExpanded-Variable.ttf") format("truetype");font-weight:200 900;font-style:normal;font-display:swap}
+:root{
+--surface:#FFFFFF;--surface-cream:#FCFAD7;--surface-sand:#F2F1EC;--surface-ink:#171719;
+--ink:#171719;--ink-muted:#4A4A4F;--ink-inverse:#FFFFFF;--ink-inverse-muted:#C9C9CD;
+--line:#E2E1DC;--line-strong:rgba(23,23,25,0.25);--accent:#4BB971;--accent-hover:#3A9C5C;
+--font-sans:"Zalando Sans",system-ui,sans-serif;--font-display:"Zalando Sans Expanded",system-ui,sans-serif;
+--space-2:2px;--space-6:6px;--space-8:8px;--space-10:10px;--space-12:12px;--space-14:14px;--space-16:16px;--space-24:24px;--space-28:28px;--space-32:32px;--space-40:40px;--space-48:48px;--space-64:64px;--space-96:96px;
+--radius-none:0;--radius-pill:999px;--radius-round:50%;
+--container-max:1200px;--header-height:112px;--measure:680px;--control-height:44px;--control-height-lg:56px;
+--ease:cubic-bezier(.4,0,0,1);
+}
+.display-case{font-family:var(--font-display);font-size:clamp(48px,8.4vw,112px);line-height:.95;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase}
+.display-hero{font-family:var(--font-display);font-size:clamp(48px,8vw,96px);line-height:.95;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase}
+.heading{font-family:var(--font-display);font-size:38px;line-height:1;font-weight:900;letter-spacing:-0.01em;text-transform:uppercase}
+.tile-title{font-family:var(--font-display);font-size:26px;line-height:1;font-weight:900;text-transform:uppercase}
+.bar-title{font-family:var(--font-display);font-size:18px;line-height:1;font-weight:900;letter-spacing:-0.01em;text-transform:uppercase}
+.eyebrow{font-family:var(--font-display);font-size:11px;line-height:1.4;font-weight:700;letter-spacing:0.16em;text-transform:uppercase}
+.tile-tag{font-family:var(--font-display);font-size:11px;line-height:1.4;font-weight:700;letter-spacing:0.3em;text-transform:uppercase}
+.numeral{font-family:var(--font-display);font-size:14px;line-height:1.4;font-weight:700;font-variant-numeric:tabular-nums}
+.lead{font-family:var(--font-sans);font-size:21px;line-height:1.55;font-weight:400}
+.intro{font-family:var(--font-sans);font-size:18px;line-height:1.45;font-weight:600}
+.body-lg{font-family:var(--font-sans);font-size:18px;line-height:1.55;font-weight:400}
+.body{font-family:var(--font-sans);font-size:16px;line-height:1.6;font-weight:400}
+.button-lg{font-family:var(--font-sans);font-size:17px;line-height:1.2;font-weight:700}
+.nav{font-family:var(--font-sans);font-size:15px;line-height:1.2;font-weight:600}
+.button{font-family:var(--font-sans);font-size:15px;line-height:1.2;font-weight:700}
+.label{font-family:var(--font-sans);font-size:14px;line-height:1.4;font-weight:700}
+.small{font-family:var(--font-sans);font-size:14px;line-height:1.4;font-weight:400}
+.caption{font-family:var(--font-sans);font-size:13px;line-height:1.4;font-weight:400}
