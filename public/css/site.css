@@ -12,7 +12,7 @@ html{scroll-behavior:smooth}
 a{color:var(--ink)}
 a:hover{color:var(--ink-muted)}
 .home a:hover{color:var(--accent-hover)}
-summary::-webkit-details-marker{display:none}
-details[open] [data-plus]{transform:rotate(45deg)}
+[data-more-toggle][aria-expanded="true"] [data-plus]{transform:rotate(45deg)}
+[data-more-body]:not([hidden]){display:flex;flex-direction:column;gap:16px}
 [data-hover="hv1"]:hover{opacity:0 !important}
 [data-hover="hv2"]:hover{background:var(--accent-hover) !important;color:var(--ink) !important}

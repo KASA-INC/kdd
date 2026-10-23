@@ -21,3 +21,14 @@
   const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); play(); } }, { threshold: 0.25 });
   io.observe(sec);
 })();
+// «Mer om …»-tekstene på forsiden: knappen flytter seg under teksten som åpnes, og bytter til «Mindre om …».
+document.querySelectorAll('[data-more]').forEach(box => {
+  const body = box.querySelector('[data-more-body]'), btn = box.querySelector('[data-more-toggle]'), label = box.querySelector('[data-more-label]');
+  const more = label.textContent, less = label.dataset.less;
+  btn.addEventListener('click', () => {
+    const open = body.hidden;
+    body.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    label.textContent = open ? less : more;
+  });
+});
