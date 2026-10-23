@@ -32,3 +32,12 @@ document.querySelectorAll('[data-more]').forEach(box => {
     label.textContent = open ? less : more;
   });
 });
+// Hamburgermenyen på mobil: åpnes og lukkes med knappen, Esc eller et klikk på en lenke.
+document.querySelectorAll('[data-header]').forEach(bar => {
+  const btn = bar.querySelector('[data-menu-toggle]');
+  if (!btn) return;
+  const set = open => { bar.toggleAttribute('data-open', open); btn.setAttribute('aria-expanded', String(open)); };
+  btn.addEventListener('click', () => set(!bar.hasAttribute('data-open')));
+  bar.querySelectorAll('[data-nav] a').forEach(a => a.addEventListener('click', () => set(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+});
