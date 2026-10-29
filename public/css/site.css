@@ -1,7 +1,10 @@
 /* Kristian Dalen – felles stiler. Tokens (farger, fonter, avstand) ligger i tokens.css. */
 @import url("./tokens.css");
-@font-face{font-family:"Arsenica";src:url("../assets/frisktid/Arsenica-AltRegular.otf") format("opentype");font-weight:400;font-display:swap}
-@font-face{font-family:"Arsenica Text";src:url("../assets/frisktid/ArsenicaText-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Frisktid Syne";src:url("../assets/frisktid/fonts/syne-600.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Frisktid Inter";src:url("../assets/frisktid/fonts/inter-400.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Frisktid Inter";src:url("../assets/frisktid/fonts/inter-500-600.ttf") format("truetype");font-weight:500 600;font-display:swap}
+@font-face{font-family:"Frisktid Serif";src:url("../assets/frisktid/fonts/source-serif-4-400.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Frisktid Serif";src:url("../assets/frisktid/fonts/source-serif-4-600.ttf") format("truetype");font-weight:600;font-display:swap}
 @font-face{font-family:"Bricolage Grotesque";src:url(../assets/hub/BricolageGrotesque-latin.woff2) format("woff2");font-weight:200 800;font-display:swap}
 @font-face{font-family:"DM Sans";src:url(../assets/hub/DMSans-latin.woff2) format("woff2");font-weight:100 1000;font-display:swap}
 @font-face{font-family:"degular-display";src:url("../assets/presis/fonts/degular-display-300.woff2") format("woff2");font-weight:300;font-display:swap}
