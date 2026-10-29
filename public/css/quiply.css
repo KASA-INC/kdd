@@ -1,0 +1,147 @@
+/* quiply-caset: komponenter fra quiplys egen identitet (logo, load-skjerm, levende ansikt, farger og former). Kundefarger er faste verdier med vilje. */
+@font-face{font-family:"Red Hat Display";src:url("../assets/quiply/RedHatDisplay-600-700.woff2") format("woff2");font-weight:600 700;font-display:swap}
+.qp{--s900:#192230;--s800:#263142;--s700:#364356;--s500:#607086;--c300:#ECD5BB;--c200:#F4E3D1;--cream:#FBF6F0;--q-ink:#0F1621;--g800:#393D44;--g300:#BABEC3;--q-display:"Red Hat Display",var(--font-sans)}
+.qp .phone{display:block;border-radius:34px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(15,22,33,.45),0 0 0 1px rgba(15,22,33,.06);width:100%;max-width:300px;height:auto}
+
+/* Navnet */
+.qp .name-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px}
+.qp .name-card{background:var(--c200);color:var(--q-ink);border-radius:26px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.qp .name-card .word{font:700 34px/1 var(--q-display);color:var(--s700)}
+.qp .name-card .word small{font-size:15px;color:var(--s500);font-weight:600;letter-spacing:.04em;margin-left:6px}
+.qp .name-card p{margin:0;font-size:16px;line-height:1.55}
+.qp .domain{margin:0;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:16px}
+.qp .domain code{font:600 15px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--cream);border:1px solid var(--c300);border-radius:999px;padding:6px 14px;color:var(--s700)}
+
+/* Logo */
+.qp .logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.qp .logo-tile{border-radius:26px;padding:34px 24px 20px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:280px;box-sizing:border-box}
+.qp .logo-tile.l{background:var(--cream);color:var(--s700)}
+.qp .logo-tile.d{background:var(--s800);color:var(--c300)}
+.qp .logo-tile svg{width:100%;height:160px}
+.qp .logo-tile .cap{font-size:14px;margin:18px 0 0;opacity:.85;text-align:center}
+.qp .logo-tile.wide{grid-column:span 2;justify-content:center;gap:24px}
+.qp .logo-tile.wide svg{height:150px}
+.qp .logo-tile .icon{width:150px;border-radius:34px;box-shadow:0 18px 40px -18px rgba(0,0,0,.5)}
+
+/* Load-skjermen */
+.qp .demo{background:var(--s800);border-radius:30px;aspect-ratio:16/9;display:grid;place-items:center;color:var(--c300);overflow:hidden}
+.qp .timeline{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.qp .timeline li{display:grid;grid-template-columns:92px 1fr;gap:14px;font-size:16px;line-height:1.5}
+.qp .timeline b{font-family:var(--q-display);color:var(--c300)}
+.qp .splash-logo{--start:2159px;--ply:4156px;--drop:595px;width:min(70%,520px);height:auto;overflow:visible;animation:splash-in .5s ease-out both}
+.qp .splash-logo path{transform-box:fill-box}
+.qp .sp-all,.qp .sp-a,.qp .sp-b{will-change:transform}
+.qp .sp-late{animation:sp-hide .45s ease-in 1.1s forwards}
+.qp .sp-all{animation:sp-down .7s cubic-bezier(.45,0,.2,1) 1.2s forwards}
+.qp .sp-new{transform-origin:50% 100%;animation:sp-out .4s ease-in 1.5s forwards}
+.qp .sp-new.sp-second{animation-delay:1.35s}
+.qp .sp-a{animation:sp-a .9s cubic-bezier(.45,0,.2,1) 1.6s forwards}
+.qp .sp-b{transform:translateX(var(--ply));animation:sp-b .9s cubic-bezier(.45,0,.2,1) 1.6s forwards}
+.qp .sp-eye,.qp .sp-mouth{transform-origin:center}
+.qp .sp-eye{animation:splash-eyes 1.8s ease-in-out both}
+.qp .sp-mouth{animation:splash-smile .8s cubic-bezier(.34,1.4,.64,1) .3s both}
+@keyframes splash-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@keyframes splash-eyes{0%,20%{transform:scaleY(.1)}32%,80%{transform:none}86%{transform:scaleY(.1)}92%,100%{transform:none}}
+@keyframes splash-smile{from{transform:scale(.75,.12)}60%{transform:scale(1.08,1.2)}to{transform:none}}
+@keyframes sp-hide{to{opacity:0}}
+@keyframes sp-down{to{transform:translateY(var(--drop))}}
+@keyframes sp-out{to{opacity:0;transform:translateY(8%) scale(.85)}}
+@keyframes sp-a{to{transform:translateX(var(--start))}}
+@keyframes sp-b{to{transform:translateX(var(--start))}}
+
+/* Levende ansikt: js/quiply.js legger på .do-<bevegelse> med jevne mellomrom. Forskyvningene er i logoens enheter (merket er 1000 bredt). */
+.qp .faces{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px}
+.qp .face-card{margin:0;background:var(--c200);border-radius:22px;padding:22px 14px 16px;text-align:center;color:var(--s700)}
+.qp .face-card .face-svg{width:76px;height:76px;overflow:visible}
+.qp .face-card figcaption{font-size:14px;margin-top:10px;color:var(--g800);line-height:1.3}
+.qp .mark.alive .eye,.qp .mark.alive .mouth,.qp .mark.alive .face{transform-box:fill-box;transform-origin:center}
+.qp .mark.alive.do-blink .eye{animation:q-blink .2s ease-in-out}
+.qp .mark.alive.do-blink-twice .eye{animation:q-blink-twice .5s ease-in-out}
+.qp .mark.alive.do-look-left .face{animation:q-look-left 1.8s ease-in-out}
+.qp .mark.alive.do-look-right .face{animation:q-look-right 1.8s ease-in-out}
+.qp .mark.alive.do-think .face{animation:q-think 2.2s ease-in-out}
+.qp .mark.alive.do-think .mouth{animation:q-think-mouth 2.2s ease-in-out}
+.qp .mark.alive.do-happy .eye{animation:q-happy-eyes 1.6s ease-in-out}
+.qp .mark.alive.do-happy .mouth{animation:q-happy-mouth 1.6s cubic-bezier(.34,1.56,.64,1)}
+.qp .mark.alive.do-surprised .face{animation:q-surprised 1.4s ease-out}
+.qp .mark.alive.do-surprised .eye{animation:q-surprised-eyes 1.4s ease-out}
+.qp .mark.alive.do-surprised .mouth{animation:q-surprised-mouth 1.4s ease-out}
+.qp .mark.alive.do-tilt .face{animation:q-tilt 1.8s ease-in-out}
+.qp .mark.alive.do-sleepy .eye{animation:q-sleepy-eyes 3.2s ease-in-out}
+.qp .mark.alive.do-sleepy .mouth{animation:q-yawn 3.2s ease-in-out}
+.qp .mark.alive.do-glance .face{animation:q-glance 1.2s ease-in-out}
+.qp .mark.alive.do-wink .eye-right{animation:q-wink .5s ease-in-out}
+.qp .mark.alive.do-wink .mouth{animation:q-smile .6s ease-in-out}
+@keyframes q-blink{50%{transform:scaleY(.1)}}
+@keyframes q-blink-twice{20%,80%{transform:scaleY(.1)}50%{transform:none}}
+@keyframes q-look-left{15%,80%{transform:translate(-75px,-8px)}}
+@keyframes q-look-right{15%,80%{transform:translate(75px,-8px)}}
+@keyframes q-think{15%,85%{transform:translate(30px,-60px)}}
+@keyframes q-think-mouth{15%,85%{transform:scale(.55,.35)}}
+@keyframes q-happy-eyes{15%,80%{transform:scaleY(.4)}}
+@keyframes q-happy-mouth{15%,80%{transform:scale(1.25,1.7)}}
+@keyframes q-surprised{8%,70%{transform:translateY(-14px)}}
+@keyframes q-surprised-eyes{8%,70%{transform:scale(1.12,1.4)}}
+@keyframes q-surprised-mouth{8%,70%{transform:scale(.42,1.25)}}
+@keyframes q-tilt{20%,75%{transform:rotate(-10deg) translateX(-12px)}}
+@keyframes q-sleepy-eyes{20%,38%{transform:scaleY(.4)}45%,72%{transform:scaleY(.12)}85%{transform:scaleY(.5)}}
+@keyframes q-yawn{40%,72%{transform:scale(.6,2.3)}}
+@keyframes q-glance{20%,75%{transform:translate(var(--gx,0),var(--gy,0))}}
+@keyframes q-wink{0%,100%{transform:scaleY(1)}40%,60%{transform:scaleY(.1)}}
+@keyframes q-smile{0%,100%{transform:scale(1)}50%{transform:scale(1.15,1.35)}}
+
+/* Farger */
+.qp .scales{display:grid;gap:18px}
+.qp .scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-radius:22px;overflow:hidden}
+.qp .chip{padding:72px 16px 16px;display:flex;flex-direction:column;gap:2px}
+.qp .chip.base{padding-top:96px}
+.qp .chip b{font:700 17px var(--q-display)}
+.qp .chip span{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;opacity:.85}
+.qp .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px;justify-items:center}
+.qp .modes figure{margin:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.qp .modes figcaption{margin-top:16px;font-size:15px;line-height:1.5;max-width:320px}
+
+/* Profilfarger */
+.qp .pcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:18px}
+.qp .pc-card{background:var(--cream);color:var(--q-ink);border-radius:24px;padding:22px}
+.qp .pc-card .swatch{display:block;width:64px;height:auto;margin-bottom:14px}
+.qp .pc-card h4{margin:0;font:700 19px/1.2 var(--q-display)}
+.qp .pc-card .muted{font-size:13px;margin:2px 0 14px;color:var(--g800)}
+.qp .swatch .l{fill:var(--pc-light)}.qp .swatch .r{fill:var(--pc-dark)}
+.qp .bub{border-radius:22px;padding:10px 16px;font-size:15px;margin-top:8px}
+.qp .bub.l{background:var(--pc-light);color:var(--q-ink);border-bottom-right-radius:6px}
+.qp .bub.d{background:var(--pc-dark);color:var(--cream);border-bottom-left-radius:6px}
+.qp .pc-card .hex{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--g800);margin:12px 0 0}
+.qp .pc-standard{--pc-light:#ECD5BB;--pc-dark:#364356}
+.qp .pc-salvie{--pc-light:#D3C6AD;--pc-dark:#4E795E}
+.qp .pc-kakao{--pc-light:#FADCDC;--pc-dark:#996350}
+.qp .pc-laks{--pc-light:#FCB5AC;--pc-dark:#3D5B59}
+.qp .pc-mynte{--pc-light:#DBE8D8;--pc-dark:#007C82}
+.qp .pc-aprikos{--pc-light:#F0AE88;--pc-dark:#7C2E28}
+.qp .pc-indigo{--pc-light:#92D2BF;--pc-dark:#313668}
+
+/* Former */
+.qp .shapes{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+.qp .shape-tile{background:var(--s800);color:var(--c300);border-radius:26px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.qp .shape-tile svg{width:100%;height:170px}
+.qp .shape-tile p{margin:0;font-size:15px;line-height:1.5;color:var(--g300)}
+.qp .shape-tile b{color:var(--cream);font-family:var(--q-display)}
+.qp .pc-wide{display:block;width:100%;height:auto;border-radius:26px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+
+@media (max-width:960px){
+.qp .logos{grid-template-columns:repeat(2,minmax(0,1fr))}
+.qp .shapes{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+.qp .logos{grid-template-columns:1fr}
+.qp .logo-tile.wide{grid-column:auto}
+.qp .scale{grid-template-columns:1fr}
+.qp .chip,.qp .chip.base{padding:18px 16px;flex-direction:row;justify-content:space-between;align-items:baseline}
+.qp .demo{aspect-ratio:4/3}
+.qp .timeline li{grid-template-columns:74px 1fr}
+.qp .shape-tile[data-row]{flex-direction:column !important}
+.qp .shape-tile[data-row] img{width:100% !important}
+}
+@media (prefers-reduced-motion:reduce){
+.qp .demo *,.qp .face-card *{animation:none !important}
+}
