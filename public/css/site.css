@@ -18,7 +18,7 @@ a:hover{color:var(--ink-muted)}
 [data-more-toggle][aria-expanded="true"] [data-plus]{transform:rotate(45deg)}
 [data-more-body]:not([hidden]){display:flex;flex-direction:column;gap:16px}
 [data-hover="hv1"]:hover{opacity:0 !important}
-[data-hover="hv2"]:hover{background:var(--accent-hover) !important;color:var(--ink) !important}
+[data-hover="hv2"]:hover{background:var(--accent-hover) !important;color:var(--on-accent) !important}
 [data-menu-toggle]{display:none}
 @media (max-width:640px){
 [data-header]{padding:0 20px !important;height:80px !important;position:relative}
@@ -32,3 +32,12 @@ a:hover{color:var(--ink-muted)}
 [data-nav] a{padding:14px 0;border-top:1px solid var(--line)}
 [data-header][data-open] [data-nav]{display:flex !important}
 }
+/* Mørk modus: den sorte logoen vises hvit, og tekst på faste kundefarger beholder den lyse modusens tekstfarge. */
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]) [data-logo]{filter:invert(1)}
+:root:not([data-theme="light"]) [data-fixed]:not([style*="color"]){color:var(--ink)}
+:root:not([data-theme="light"]) section[data-fixed]:not([style*="background"]){background:var(--surface)}
+}
+:root[data-theme="dark"] [data-logo]{filter:invert(1)}
+:root[data-theme="dark"] [data-fixed]:not([style*="color"]){color:var(--ink)}
+:root[data-theme="dark"] section[data-fixed]:not([style*="background"]){background:var(--surface)}

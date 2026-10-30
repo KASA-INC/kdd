@@ -4,7 +4,7 @@
 :root{
 --surface:#FFFFFF;--surface-cream:#FCFAD7;--surface-sand:#F2F1EC;--surface-ink:#171719;
 --ink:#171719;--ink-muted:#4A4A4F;--ink-inverse:#FFFFFF;--ink-inverse-muted:#C9C9CD;
---line:#E2E1DC;--line-strong:rgba(23,23,25,0.25);--accent:#4BB971;--accent-hover:#3A9C5C;
+--line:#E2E1DC;--line-strong:rgba(23,23,25,0.25);--accent:#4BB971;--accent-hover:#3A9C5C;--on-accent:#171719;
 --font-sans:"Zalando Sans",system-ui,sans-serif;--font-display:"Zalando Sans Expanded",system-ui,sans-serif;
 --space-2:2px;--space-6:6px;--space-8:8px;--space-10:10px;--space-12:12px;--space-14:14px;--space-16:16px;--space-24:24px;--space-28:28px;--space-32:32px;--space-40:40px;--space-48:48px;--space-64:64px;--space-96:96px;
 --radius-none:0;--radius-pill:999px;--radius-round:50%;
@@ -29,3 +29,11 @@
 .label{font-family:var(--font-sans);font-size:14px;line-height:1.4;font-weight:700}
 .small{font-family:var(--font-sans);font-size:14px;line-height:1.4;font-weight:400}
 .caption{font-family:var(--font-sans);font-size:13px;line-height:1.4;font-weight:400}
+/* Mørk modus: sort og hvit bytter plass, kremfargen får en mørk variant, og grønn tekstfarge på grønne flater holdes mørk (--on-accent).
+   Elementer med faste kundefarger (data-fixed) beholder de lyse verdiene, så casene ser like ut i begge moduser. */
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){--surface:#171719;--surface-cream:#24241A;--surface-sand:#232326;--surface-ink:#FFFFFF;--ink:#FFFFFF;--ink-muted:#C9C9CD;--ink-inverse:#171719;--ink-inverse-muted:#4A4A4F;--line:#34343A;--line-strong:rgba(255,255,255,0.25);--accent-hover:#6CCB8D;color-scheme:dark}
+:root:not([data-theme="light"]) [data-fixed]{--surface:#FFFFFF;--surface-cream:#FCFAD7;--surface-sand:#F2F1EC;--surface-ink:#171719;--ink:#171719;--ink-muted:#4A4A4F;--ink-inverse:#FFFFFF;--ink-inverse-muted:#C9C9CD;--line:#E2E1DC;--line-strong:rgba(23,23,25,0.25);--accent-hover:#3A9C5C}
+}
+:root[data-theme="dark"]{--surface:#171719;--surface-cream:#24241A;--surface-sand:#232326;--surface-ink:#FFFFFF;--ink:#FFFFFF;--ink-muted:#C9C9CD;--ink-inverse:#171719;--ink-inverse-muted:#4A4A4F;--line:#34343A;--line-strong:rgba(255,255,255,0.25);--accent-hover:#6CCB8D;color-scheme:dark}
+:root[data-theme="dark"] [data-fixed]{--surface:#FFFFFF;--surface-cream:#FCFAD7;--surface-sand:#F2F1EC;--surface-ink:#171719;--ink:#171719;--ink-muted:#4A4A4F;--ink-inverse:#FFFFFF;--ink-inverse-muted:#C9C9CD;--line:#E2E1DC;--line-strong:rgba(23,23,25,0.25);--accent-hover:#3A9C5C}
