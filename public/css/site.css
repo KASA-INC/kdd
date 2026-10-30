@@ -41,3 +41,10 @@ a:hover{color:var(--ink-muted)}
 :root[data-theme="dark"] [data-logo]{filter:invert(1)}
 :root[data-theme="dark"] [data-fixed]:not([style*="color"]){color:var(--ink)}
 :root[data-theme="dark"] section[data-fixed]:not([style*="background"]){background:var(--surface)}
+/* Mørk modus: CV-seksjonen får mørk bakgrunn med grønn tekst, og kontaktlinjen og bunnteksten er mørke som i lys modus. */
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]) #cv{background:var(--surface) !important;--on-accent:var(--accent);--line-strong:rgba(75,185,113,0.35)}
+:root:not([data-theme="light"]) [data-sticky-bar],:root:not([data-theme="light"]) [data-sticky-footer]{--surface:#FFFFFF;--surface-ink:#171719;--ink-inverse:#FFFFFF;--ink-inverse-muted:#C9C9CD;--ink-muted:#4A4A4F}
+}
+:root[data-theme="dark"] #cv{background:var(--surface) !important;--on-accent:var(--accent);--line-strong:rgba(75,185,113,0.35)}
+:root[data-theme="dark"] [data-sticky-bar],:root[data-theme="dark"] [data-sticky-footer]{--surface:#FFFFFF;--surface-ink:#171719;--ink-inverse:#FFFFFF;--ink-inverse-muted:#C9C9CD;--ink-muted:#4A4A4F}
